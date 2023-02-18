@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    
+</head>
+<style media="screen">
+   *{
+
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+    }
+    body{
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background: linear-gradient(45deg,rgb(163, 231, 237) 50%, rgb(56, 182, 210) 50%);
+    } 
+    .todo{
+        width:450px;
+        height: 550px;
+        background-color: aliceblue;
+        padding: 10px;
+    }
+
+.input{
+    border: none;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(12 68 88);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-weight: bold;
+    padding-left: 20px;
+    
+}
+.tasks{
+    list-style: none;
+   
+}
+
+.tasks li{
+    background:rgb(213 224 230);
+    border-bottom: 2px dashed #ccc;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+   
+
+}
+</style>
+<body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"></script>
+   
+    <div class="container">
+        <div class="todo">
+         <h3 style="padding-bottom: 10px;padding-top: 20px; text-align: center; background-color: rgb(255, 255, 255);">todo list</h3>
+         <hr style="margin-bottom: 20px; margin-top:10px ;">
+         <form class="add" method="post" style="margin-bottom: 20px;">
+            <input type="text" class="input" placeholder="what will ur gonna do today">
+           
+           </form>
+           <ul class="tasks"> 
+            <li>
+                do tasks
+            </li>
+            <li>
+                wafaa m
+            </li>
+           </ul>
+          
+        </div>
+       
+          <ul></ul>
+    </div>
+   <script>
+    var newtask=$('.input');
+    //lma age a submit l form
+    $('.add').on('submit',function(e){
+        e.preventDefault();
+        if(newtask.val() != ''){
+
+            $('<li>' + newtask.val() + '</li>').appendTo('.tasks');
+            newtask.val('');
+        }
+
+    });
+$('.tasks').on('click', 'li' , function(){
+
+$(this).css('text-decoration','line-through').delay(300).fadeOut(400,function(){
+    $(this).remove();
+});
+
+
+
+    });
+
+   </script>
+</body>
+</html>
